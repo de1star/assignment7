@@ -69,9 +69,12 @@ function drawCurrentShape () {
     // may need to set different parameters based on the texture
     // you are using...The current texture is found in the global variable
     // curTexture.   If will have the value of "globe", "myimage" or "proc"
+    var program;
+    if (curTexture == 'globe') program = sphereGlobeProgram;
+
     
     // which program are we using
-    var program = sphereGlobeProgram;
+//    var program = sphereGlobeProgram;
     
     // set up your uniform variables for drawing
     gl.useProgram (program);
