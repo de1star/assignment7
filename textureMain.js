@@ -6,7 +6,6 @@
 
   // The programs
   let sphereGlobeProgram;
-  let sphereMyImageProgram;
 
   // the textures
   let worldTexture;
@@ -91,11 +90,9 @@ function drawCurrentShape () {
     // you are using...The current texture is found in the global variable
     // curTexture.   If will have the value of "globe", "myimage" or "proc"
     var program;
-    if (curTexture == 'globe') program = sphereGlobeProgram;
-
     
     // which program are we using
-//    var program = sphereGlobeProgram;
+    var program = sphereGlobeProgram;
     
     // set up your uniform variables for drawing
     gl.useProgram (program);
@@ -104,6 +101,7 @@ function drawCurrentShape () {
     // have added to the shader
     gl.activeTexture (gl.TEXTURE0);
     if (curTexture == 'globe') gl.bindTexture (gl.TEXTURE_2D, worldTexture);
+    if (curTexture == 'myimage') gl.bindTexture (gl.TEXTURE_2D, myImageTexture);
     gl.uniform1i (program.uTheTexture, 0);
     
     // set up rotation uniform
