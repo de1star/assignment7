@@ -65,6 +65,9 @@
              
          // uvs passed in from vertex shader
          in vec2 theUV;
+
+         // for texture choosing
+         uniform int texture_id;
          
          // the texture to use
          uniform sampler2D theTexture;
@@ -92,6 +95,7 @@
     
     <!-- texture images -->
     <img id="world-texture" src="1_earth_16k.jpg" style="display: none;"> </img>
+    <img id="my-image" src="my-image.jpg" style="display: none;"> </img>
     
     <!-- keyboard functions -->
     <script type="text/javascript">
