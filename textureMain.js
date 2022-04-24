@@ -103,7 +103,7 @@ function drawCurrentShape () {
     gl.activeTexture (gl.TEXTURE0);
     if (curTexture == 'globe') gl.bindTexture (gl.TEXTURE_2D, worldTexture);
     if (curTexture == 'myimage') gl.bindTexture (gl.TEXTURE_2D, myImageTexture);
-    if (curTexture == 'proc') gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
+    if (curTexture == 'proc') gl.bindTexture (gl.TEXTURE_2D, procTexture);
     gl.uniform1i (program.uTheTexture, 0);
     
     // set up rotation uniform
