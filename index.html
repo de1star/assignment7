@@ -84,10 +84,9 @@
          }
 
          void main(void) {
-             if (theTexture == 0){
-                fragColor = texture (theTexture, theUV);
-             }else{
-                fragColor = procColor(theUV);
+             fragColor = texture (theTexture, theUV);
+             if (theTexture = 1) {
+               fragColor = procColor(theUV);
              }
          }
 
