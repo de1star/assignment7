@@ -10,7 +10,7 @@
     // Per vertex shading
 
     // Vertex Attributes
-    in vec3 aVertexPosition; // in model coords
+    in vec4 aVertexPosition; // d in model coords
     in vec2 aUV;    // u-v coordinates
 
     // outputs
@@ -48,7 +48,8 @@
         theUV = aUV;
 
         // transform vertex to clip space
-        gl_Position = rz * ry * rx * vec4 (aVertexPosition, 1.0);
+        // d gl_Position = rz * ry * rx * vec4 (aVertexPosition, 1.0);
+        gl_Position = rz * ry * rx * aVertexPosition
     }
 
     </script>
