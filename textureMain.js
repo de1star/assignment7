@@ -104,10 +104,12 @@ function drawCurrentShape () {
     // set up texture uniform & other uniforms that you might
     // have added to the shader
     gl.activeTexture (gl.TEXTURE0);
+    gl.uniform1i (program.uTheTexture, 0);
     if (curTexture == 'globe') gl.bindTexture (gl.TEXTURE_2D, worldTexture);
     else if (curTexture == 'myimage') gl.bindTexture (gl.TEXTURE_2D, myImageTexture);
-    else if (curTexture == 'proc') gl.bindTexture (gl.TEXTURE_2D, procTexture);
-    gl.uniform1i (program.uTheTexture, 0);
+    else if (curTexture == 'proc'){
+        gl.uniform1i (program.uTheTexture, 1);
+    }
     
     // set up rotation uniform
     gl.uniform3fv (program.uTheta, new Float32Array(angles));
@@ -148,6 +150,7 @@ function initProgram (vertexid, fragmentid) {
   // uniforms that you add to your shaders
   program.uTheTexture = gl.getUniformLocation (program, 'theTexture');
   program.uTheta = gl.getUniformLocation (program, 'theta');
+  program.uTexType = gl.getUniformLocation(program, 'texType')
     
   return program;
 }

@@ -66,15 +66,29 @@
              
          // uvs passed in from vertex shader
          in vec2 theUV;
-         
+
+         // texture type
+         uniform int texType;
+
          // the texture to use
          uniform sampler2D theTexture;
 
          // Color that is the result of this shader
          out vec4 fragColor;
 
+         vec3 blue = vec3(0, 0, 1.0);
+         vec4 procColor(vec2 tex_coords){
+            float s = tex_coords[0];
+            float t = tex_coords[1];
+            return vec4(blue * s, 1.0)
+         }
+
          void main(void) {
-             fragColor = texture (theTexture, theUV);
+             if (theTexture == 0){
+                fragColor = texture (theTexture, theUV);
+             }else{
+                fragColor = procColor(theUV);
+             }
          }
 
     </script>
