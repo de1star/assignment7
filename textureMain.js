@@ -102,8 +102,8 @@ function drawCurrentShape () {
     // have added to the shader
     gl.activeTexture (gl.TEXTURE0);
     if (curTexture == 'globe') gl.bindTexture (gl.TEXTURE_2D, worldTexture);
-    if (curTexture == 'myimage') gl.bindTexture (gl.TEXTURE_2D, myImageTexture);
-    if (curTexture == 'proc') {};
+    else if (curTexture == 'myimage') gl.bindTexture (gl.TEXTURE_2D, myImageTexture);
+    else if (curTexture == 'proc') {};
     gl.uniform1i (program.uTheTexture, 0);
     
     // set up rotation uniform
