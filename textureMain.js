@@ -56,6 +56,9 @@ function setUpTextures(){
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    worldImage.onload = () {
+        world.crossOrigin = "";
+    }
 
     // get some texture space from the gpu
     myImageTexture = gl.createTexture();
